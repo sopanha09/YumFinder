@@ -28,7 +28,7 @@ export default function Home() {
         console.log('data: ', data);
         // handle the data
         if (data.meals) {
-          setMeals(data.meals.slice(0, 6));
+          setMeals(data.meals.slice(0, 8));
         } else {
           setMeals([]);
         }
@@ -51,18 +51,22 @@ export default function Home() {
         />
       </div>
 
-      <h2 className="text-2xl font-bold my-2 text-white px-4">{heading}</h2>
-      {loading ? (
-        <LoadingIndicator />
-      ) : meals.length === 0 ? (
-        <p className="text-center text-white">No meals found</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-          {meals.map((meal) => (
-            <MealCard key={meal.idMeal} meals={meal} />
-          ))}
-        </div>
-      )}
+      <div className="my-10">
+        <h2 className="text-2xl font-semibold text-gray-700 max-w-7xl mx-auto px-4">
+          {heading}
+        </h2>
+        {loading ? (
+          <LoadingIndicator />
+        ) : meals.length === 0 ? (
+          <p className="text-center text-white">No meals found</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 max-w-7xl mx-auto gap-8">
+            {meals.map((meal) => (
+              <MealCard key={meal.idMeal} meals={meal} />
+            ))}
+          </div>
+        )}
+      </div>
     </MainLayout>
   );
 }

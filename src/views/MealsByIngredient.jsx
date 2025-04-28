@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import { MealCard } from '../components/MealCard';
 import LoadingIndicator from '../components/LoadingIndicator';
+import Banner from '../components/Banner';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -21,6 +22,7 @@ export default function MealsByIngredient() {
 
         console.log('first', response);
         const data = await response.json();
+        console.log('second', data);
         if (data.meals) {
           setMeals(data.meals);
         } else {
@@ -38,16 +40,18 @@ export default function MealsByIngredient() {
 
   return (
     <MainLayout>
-      <div className="p-4">
-        <h2 className="text-2xl font-bold mb-4 text-white">
-          Meals with "{ingredient}"
-        </h2>
+      <div>
+        <Banner
+          title={`Meals with "${ingredient}"`}
+          subtitle="Click on a meal to see more details."
+        />
+
         {error && <p className="text-center py-8 text-red-500">{error}</p>}
         {loading && <LoadingIndicator />}
         {!loading && meals.length === 0 && !error && (
           <p className="text-center py-8 text-gray-400">No meals found</p>
         )}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-7xl mx-auto gap-8 px-4 py-10">
           {meals.map((meal) => (
             <MealCard key={meal.idMeal} meals={meal} />
           ))}

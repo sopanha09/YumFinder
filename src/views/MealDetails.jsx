@@ -57,7 +57,7 @@ export default function MealDetails() {
 
   return (
     <MainLayout>
-      <div className="max-w-5xl mx-auto p-4 text-white">
+      <div className="max-w-5xl mx-auto my-10 p-4 text-gray-700">
         <h1 className="text-3xl font-bold mb-4">{meal.strMeal}</h1>
         <div className="flex flex-col gap-8">
           <img
@@ -76,9 +76,9 @@ export default function MealDetails() {
               <strong>Tags:</strong> {meal.strTags || 'N/A'}
             </p>
             <h2 className="text-2xl font-bold mb-2">Instructions:</h2>
-            <p className="text-gray-300">{meal.strInstructions}</p>
+            <p className="text-gray-500">{meal.strInstructions}</p>
             <h2 className="text-2xl font-bold mt-4 mb-2">Ingredients:</h2>
-            <ul className="list-disc list-inside text-gray-300">
+            <ul className="list-disc list-inside text-gray-500">
               {Array.from({ length: 20 }, (_, i) => i + 1)
                 .map((index) => ({
                   ingredient: meal[`strIngredient${index}`],
@@ -86,18 +86,22 @@ export default function MealDetails() {
                 }))
                 .filter((item) => item.ingredient)
                 .map((item, index) => (
-                  <li key={index}>
-                    {item.ingredient} - {item.measure}
+                  <li
+                    key={index}
+                    className="flex justify-between border-b py-1"
+                  >
+                    <span className="w-1/2">{item.ingredient}</span>
+                    <span className="w-1/2 text-right">{item.measure}</span>
                   </li>
                 ))}
             </ul>
-            <div className="mt-4 flex gap-4">
+            <div className="mt-8 flex gap-2 items-center">
               {meal.strYoutube && (
                 <a
                   href={meal.strYoutube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-blue-500 hover:bg-blue-700 duration-500 hover:underline text-white px-3 py-2 rounded"
+                  className="rounded-full bg-primary hover:bg-primary/30 duration-500 text-white px-3 py-2 md:text-base text-sm"
                 >
                   Watch on YouTube
                 </a>
@@ -107,7 +111,7 @@ export default function MealDetails() {
                   href={meal.strSource}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-500 hover:bg-green-700 duration-500 hover:underline text-white px-3 py-2 rounded"
+                  className="rounded-full bg-secondary hover:bg-secondary/30 duration-500 text-white text-center px-4  py-2 md:text-base text-sm"
                 >
                   View Original Source
                 </a>
