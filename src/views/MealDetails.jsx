@@ -6,7 +6,7 @@ import LoadingIndicator from '../components/LoadingIndicator';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function MealDetails() {
-  const { id } = useParams(); // Get the meal ID from the URL
+  const { id } = useParams(); 
   const [meal, setMeal] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ export default function MealDetails() {
         const response = await fetch(`${API_BASE_URL}/lookup.php?i=${id}`);
         const data = await response.json();
         if (data.meals) {
-          setMeal(data.meals[0]); // Set the first meal from the response
+          setMeal(data.meals[0]); 
         } else {
           setMeal(null);
         }
