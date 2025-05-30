@@ -4,7 +4,7 @@ YumFinder is a React application for discovering meals and ingredients using [Th
 
 ## Features
 
--- **Authentication**: Simple login with protected routes (currently handled with static, hardcoded credentials; can be integrated with server-side authentication in the future).
+- **Authentication**: Simple login with protected routes (currently handled with static, hardcoded credentials; can be integrated with server-side authentication in the future).
 - **Meal Search**: Search for meals by name.
 - **Ingredient List**: Browse and select ingredients to see related meals.
 - **Meal Details**: View detailed information and instructions for each meal.
