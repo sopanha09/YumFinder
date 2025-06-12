@@ -10,6 +10,13 @@ YumFinder is a React application for discovering meals and ingredients using [Th
 - **Meal Details**: View detailed information and instructions for each meal.
 - **Responsive UI**: Built with Tailwind CSS for modern styling.
 
+## Usage
+
+- **Login:** Use username `admin` and password `1111` to log in.
+- **Home:** Search for meals or view random meals.
+- **Ingredients:** Browse ingredients and click to see related meals.
+- **Meal Details:** Click on a meal to view its details, ingredients, and instructions.
+
 ## Project Structure
 
 ```
@@ -102,13 +109,6 @@ npm run lint
 # or
 yarn lint
 ```
-
-## Usage
-
-- **Login:** Use username `admin` and password `1111` to log in.
-- **Home:** Search for meals or view random meals.
-- **Ingredients:** Browse ingredients and click to see related meals.
-- **Meal Details:** Click on a meal to view its details, ingredients, and instructions.
 
 ## Customization
 
